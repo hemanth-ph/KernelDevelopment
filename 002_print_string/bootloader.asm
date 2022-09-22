@@ -1,9 +1,14 @@
 ORG 0
 BITS 16
 start:
+    cli ;clear all the interrupts
     mov ax,0X7C0 ;we cannot directly load into seg regs. so we are using ax as via.
     mov ds,ax    ;instead of specifying at ORG, we are loading 0x7c0(seg. addr.) to DS
     mov si, message ; We are loading offset of msg to SI
+    mov ax,0
+    mov ss,ax  ;stack segment
+    mov sp,0x7c00
+    sti ;enable all the interrupts 
     call print
     jmp $
 print:
