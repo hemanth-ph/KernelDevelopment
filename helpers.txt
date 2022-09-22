@@ -1,0 +1,2 @@
+-> nasm -f <fil format> <input file> -o <output file including format>
+->qemu-system-x86_64 <memory dev from which it should boot(hda/hdb/..)> <input file name>
