@@ -1,6 +1,14 @@
 ORG 0
 BITS 16
+
+_start:
+    jmp short start
+    nop
+times 33 db 5
+
 start:
+    jmp 0x7c0:start2
+start2:
     cli ;clear all the interrupts
     mov ax,0X7C0 ;we cannot directly load into seg regs. so we are using ax as via.
     mov ds,ax    ;instead of specifying at ORG, we are loading 0x7c0(seg. addr.) to DS
