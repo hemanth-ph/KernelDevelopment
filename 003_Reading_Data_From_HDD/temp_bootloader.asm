@@ -24,7 +24,8 @@ error:
 print:
     mov ah, 0x0e
 .loop:
-    lodsb
+    mov al,[si]
+    inc si
     cmp al,0
     je .done
     call print_char
